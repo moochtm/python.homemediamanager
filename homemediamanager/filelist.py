@@ -43,7 +43,7 @@ class FileList:
 
     def load(self, path):
         if os.path.isfile(os.path.join(path, __history_filename__)):
-            f = open(os.path.join(path, __history_filename__), 'r')
+            f = open(os.path.join(path, __history_filename__), 'rb')
             self.files = pickle.load(f)
             print_to_log("Loaded Filelist")
             print_to_log(self.files)
@@ -53,7 +53,8 @@ class FileList:
             return False
 
     def save(self, path):
-        f = open(os.path.join(path, __history_filename__), 'w')
+        print("here")
+        f = open(os.path.join(path, __history_filename__), 'wb')
         pickle.dump(self.files, f)
         f.close()
 

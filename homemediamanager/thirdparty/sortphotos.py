@@ -182,17 +182,17 @@ class ExifTool(object):
         return self
 
     def __exit__(self, exc_type, exc_value, traceback):
-        self.process.stdin.write("-stay_open\nFalse\n")
+        self.process.stdin.write("-stay_open\nFalse\n".encode())
         self.process.stdin.flush()
 
     def execute(self, *args):
         args = args + ("-execute\n",)
-        self.process.stdin.write(str.join("\n", args))
+        self.process.stdin.write(str.join("\n", args).encode())
         self.process.stdin.flush()
         output = ""
         fd = self.process.stdout.fileno()
         while not output.endswith(self.sentinel):
-            increment = os.read(fd, 4096)
+            increment = os.read(fd, 4096).decode()
             if self.verbose:
                 sys.stdout.write(increment)
             output += increment

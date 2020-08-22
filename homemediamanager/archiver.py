@@ -104,14 +104,14 @@ class Archiver():
 
                         # create the sortphotos file rename format string
                         file_rename_format = filename_prefix + '.%Y-%m-%d.{orig}'
-
+                        print("here")
                         # use the [extended] sortphotos module to move, sort and rename all files
                         sorted_photos = sortphotos.sortPhotos(src_dir=temp_folder_path, dest_dir=dest,
                                                               sort_format=dest_folder_structure_format,
                                                               rename_format=file_rename_format, recursive=True,
                                                               additional_groups_to_ignore=[], verbose=False)
 
-
+                        print("here")
                         shutil.rmtree(temp_folder_path)
 
                         logger.info("Checking archived file against original:")

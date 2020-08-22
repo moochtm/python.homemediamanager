@@ -1,3 +1,19 @@
-08-22 20:38 __main__     INFO     Starting...
-08-22 20:38 __main__     INFO     Loading config file...
-08-22 20:38 __main__     WARNING  cannot find config file: /Users/home/Documents/Code/python.homemediamanager/JobBackupFromHOMEMEDIA_INBOX_matts-mbp.cfg
+08-22 22:13 __main__     INFO     Starting...
+08-22 22:13 __main__     INFO     Loading config file...
+08-22 22:13 __main__     INFO     Loaded config:
+08-22 22:13 __main__     INFO     {'General': {'pathToVolumes': '/Users/home/Pictures/test_inbox', 'fileExtensionsFilter': ['JPG', 'MTS', 'CR2', 'DNG', 'MOV', 'MP4'], 'destFolderStructureFormat': '%Y/%m-%b'}, 'ArchiveVolumes': {'paths': '/Users/home/Pictures/test_target'}, 'SourceVolumes': {'test_source': {'filenamePrefix': 'test_source', 'destFolderStructureFormat': '%Y/%m-%b', 'deleteFilesAfterBackup': 'True'}}, 'Messages': {'PushBullet': {'recipientAccountID': 'WyZeG30lkiF6qhaFGqt21IAEIAM73l3O'}}}
+08-22 22:13 __main__     INFO     Checking volumes...
+08-22 22:13 __main__     INFO     Volumes to be processed: ['test_source']
+08-22 22:13 __main__     INFO     Processing "test_source"...
+08-22 22:13 __main__     INFO     test_source mounted, processing now.
+08-22 22:13 __main__     INFO     Destination paths: /Users/home/Pictures/test_target
+08-22 22:13 homemediamanager.filelist INFO     Generating FileList info for "/Users/home/Pictures/test_inbox/test_source/038A5865.JPG"
+08-22 22:13 homemediamanager.archiver INFO     =============================================================
+08-22 22:13 homemediamanager.archiver INFO     Processing file: /Users/home/Pictures/test_inbox/test_source/038A5865.JPG
+08-22 22:13 homemediamanager.archiver INFO     Deleting original file
+08-22 22:13 homemediamanager.archiver INFO     Adding file to history filelist
+08-22 22:13 __main__     INFO     ('/Users/home/Pictures/test_inbox/test_source/038A5865.JPG', {'end status': 'Deleted', 'history': 'Old'})
+('Summary', {'History': {'New': 0, 'Old': 1}, 'End Status': {'Kept': 0, 'Deleted': 1, 'Error': 0}})
+
+08-22 22:13 __main__     INFO     test_source mounted, processing finished.
+08-22 22:13 __main__     INFO     Finished processing "test_source"
