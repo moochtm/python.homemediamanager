@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 
 def print_to_log(d, indent=0, level="DEBUG"):
     try:
-        for key, value in d.iteritems():
+        for key, value in d.items():
             # logger.info('\t' * indent + str(key) + str(value))
             if isinstance(value, dict):
                 if level == "INFO": logger.info('\t' * indent + str(key) + ":")
@@ -90,7 +90,7 @@ class FileList:
 
     def contains_this_file(self, file):
         result = False
-        if file in self.files.items():
+        if file in list(self.files.items()):
             result = true
         return result
 

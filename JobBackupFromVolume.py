@@ -70,16 +70,16 @@ testing = False
 def nice_list(list):
     nice_list = ""
     for item in list:
-        print item
+        print(item)
         nice_list = nice_list + item + "\n"
-        print nice_list
+        print(nice_list)
     return nice_list
 
 def error_handler(file_path, status):
-    print "------------------------------"
-    print "ERROR processing file: %s" % file_path
-    print "Status when error occured: %s" % status
-    print "------------------------------"
+    print("------------------------------")
+    print("ERROR processing file: %s" % file_path)
+    print("Status when error occured: %s" % status)
+    print("------------------------------")
 
 
 ################################################################################
@@ -133,7 +133,7 @@ def run():
     logger.info('Checking volumes...')
     volumes_to_process = []
     for volume in os.listdir(config['General']['pathToVolumes']):
-        if volume in config['SourceVolumes'].keys():
+        if volume in list(config['SourceVolumes'].keys()):
             volumes_to_process.append(volume)
 
     logger.info('Volumes to be processed: %s' % str(volumes_to_process))
@@ -168,7 +168,7 @@ def run():
 
             # CREATE NICER LOOKING RESULTS FOR SENDING IN A MESSAGE (NEW LINE FOR EACH FILE)
             printable_results = ""
-            for item in results.items():
+            for item in list(results.items()):
                 printable_results += str(item) + "\n"
 
             # SEND MESSAGE
@@ -181,7 +181,7 @@ def run():
 
             logger.info('Finished processing "%s"' % volume)
 
-        except Exception, e:
+        except Exception as e:
             logger.exception(e)
 
     # UNLOCK

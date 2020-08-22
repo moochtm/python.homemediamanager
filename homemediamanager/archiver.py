@@ -7,9 +7,9 @@ import uuid
 import shutil
 import collections
 
-import filelist
+from . import filelist
 
-from thirdparty import sortphotos
+from .thirdparty import sortphotos
 
 ################################################################################
 # SETUP LOGGING
@@ -86,7 +86,7 @@ class Archiver():
                     results[file_path]['history'] = 'New'
 
                 if not file_already_archived:
-                    if isinstance(dest_paths, basestring):
+                    if isinstance(dest_paths, str):
                     	dest_paths = [dest_paths]
                     for dest in dest_paths:
 
@@ -155,7 +155,7 @@ class Archiver():
         results["Summary"]["End Status"]["Deleted"] = 0
         results["Summary"]["End Status"]["Error"] = 0
 
-        for item in results.items():
+        for item in list(results.items()):
             if item[1].get('end status') == "Kept":
                 results["Summary"]["End Status"]["Kept"] += 1
             if item[1].get('end status') == "Deleted":
@@ -167,7 +167,7 @@ class Archiver():
             if item[1].get('history') == "Old":
                 results["Summary"]["History"]["Old"] += 1
 
-        results = collections.OrderedDict(sorted(results.items(), key=lambda t: t[0]))
+        results = collections.OrderedDict(sorted(list(results.items()), key=lambda t: t[0]))
 
         return results
 
